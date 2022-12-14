@@ -9,6 +9,7 @@ import {Tasks} from "../../utils/models/Task";
 })
 export class HomeComponent {
   todos: Tasks;
+  filtre: 'all' | boolean = 'all';
   constructor(private todoService: TodosService ) {
     this.todos = todoService.tasks;
 

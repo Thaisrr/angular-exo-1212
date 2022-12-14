@@ -1,4 +1,11 @@
 <h1>So many stuff to do !</h1>
 
 <h2>Mes tâches :</h2>
-<app-card *ngFor="let td of todos" [tache]="td"></app-card>
+
+<p>
+  <button (click)="filtre = 'all'">Tout</button>
+  <button (click)="filtre = true">Terminé</button>
+  <button (click)="filtre = false">En cours</button>
+</p>
+
+<app-card *ngFor="let td of todos | filter: filtre" [tache]="td"></app-card>
