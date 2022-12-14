@@ -1,6 +1,4 @@
 <h1>So many stuff to do !</h1>
 
 <h2>Mes tâches :</h2>
-<p *ngFor="let td of todos">
-  {{td.title}}
-</p>
+<app-card *ngFor="let td of todos" [tache]="td"></app-card>
