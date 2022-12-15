@@ -8,4 +8,10 @@
   <button (click)="filtre = false">En cours</button>
 </p>
 
-<app-card *ngFor="let td of todos | filter: filtre" [tache]="td"></app-card>
+<div class="grid" *ngIf="todos">
+  <app-card *ngFor="let td of todos | filter: filtre" [tache]="td"></app-card>
+</div>
+
+<p *ngIf="!todos">
+  Chargement en court...
+</p>

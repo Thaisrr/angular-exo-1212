@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TodosService} from "../../utils/services/todos.service";
 import {Tasks} from "../../utils/models/Task";
 
@@ -7,12 +7,19 @@ import {Tasks} from "../../utils/models/Task";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  todos: Tasks;
+export class HomeComponent implements OnInit{
+  todos?: Tasks;
   filtre: 'all' | boolean = 'all';
-  constructor(private todoService: TodosService ) {
-    this.todos = todoService.tasks;
+  constructor(private todoService: TodosService ) {}
 
+  ngOnInit() {
+    this.loadTodos();
+  }
+
+  loadTodos() {
+    this.todoService.getAll().subscribe({
+      next: res => this.todos = res
+    });
   }
 
 }
