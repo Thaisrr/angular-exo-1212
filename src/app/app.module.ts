@@ -7,18 +7,22 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './component/card/card.component';
 import { FilterPipe } from './utils/pipes/filter.pipe';
 import {HttpClientModule} from "@angular/common/http";
+import { CreateComponent } from './pages/create/create.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CardComponent,
-    FilterPipe
+    FilterPipe,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

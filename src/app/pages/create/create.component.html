@@ -1,0 +1,26 @@
+<h1>Nouvelle Tâche</h1>
+
+<main>
+  <form [formGroup]="todo_form" (ngSubmit)="submit()">
+
+    <div>
+      <label for="title">Titre</label>
+      <input id="title" formControlName="title">
+      <p *ngIf="title.invalid && title.touched" [ngStyle]="{color: 'red'}">
+        Veuillez entrer un titre
+      </p>
+    </div>
+    <div>
+      <label for="desc">Description</label>
+      <textarea id="desc" formControlName="description"></textarea>
+    </div>
+    <div>
+      <input id="done" type="checkbox" formControlName="is_done">
+      <label for="done">Terminée ?</label>
+    </div>
+    <p>
+      <button [disabled]="todo_form.invalid">Enregistrer la tâche</button>
+    </p>
+
+  </form>
+</main>

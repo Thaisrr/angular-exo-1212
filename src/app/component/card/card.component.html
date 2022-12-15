@@ -2,4 +2,8 @@
   <h3>{{tache.title}}</h3>
   <p>{{tache.description}}</p>
   <p>-- {{tache.is_done ? 'Terminée !' : 'En cours'}}</p>
+  <p>
+    <button (click)="update()">Marquer comme  {{tache.is_done ? 'Terminée !' : 'En cours'}}</button>
+    <button (click)="remove()">Delete</button>
+  </p>
 </div>

@@ -9,7 +9,8 @@
 </p>
 
 <div class="grid" *ngIf="todos">
-  <app-card *ngFor="let td of todos | filter: filtre" [tache]="td"></app-card>
+  <app-card *ngFor="let td of todos | filter: filtre" [tache]="td"
+            (reload_emitter)="loadTodos()"></app-card>
 </div>
 
 <p *ngIf="!todos">
