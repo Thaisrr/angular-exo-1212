@@ -1,17 +1,20 @@
-<h1>So many stuff to do !</h1>
+<h1 class="bg-primary">So many stuff to do !</h1>
 
 <h2>Mes tâches :</h2>
 
-<p>
-  <button (click)="filtre = 'all'">Tout</button>
-  <button (click)="filtre = true">Terminé</button>
-  <button (click)="filtre = false">En cours</button>
+<p class="btn-group">
+  <button class="btn btn-outline-dark" (click)="filtre = 'all'">Tout</button>
+  <button class="btn btn-outline-dark" (click)="filtre = true">Terminé</button>
+  <button class="btn btn-outline-dark" (click)="filtre = false">En cours</button>
 </p>
 
-<div class="grid" *ngIf="todos">
-  <app-card *ngFor="let td of todos | filter: filtre" [tache]="td"
-            (reload_emitter)="loadTodos()"></app-card>
-</div>
+<mat-grid-list *ngIf="todos" cols="3" gutterSize="30">
+  <mat-grid-tile  *ngFor="let td of todos | filter: filtre" >
+    <app-card [tache]="td"
+              (reload_emitter)="loadTodos()"></app-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
 
 <p *ngIf="!todos">
   Chargement en court...

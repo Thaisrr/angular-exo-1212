@@ -1,9 +1,16 @@
-<div class="card">
-  <h3>{{tache.title}}</h3>
-  <p>{{tache.description}}</p>
-  <p>-- {{tache.is_done ? 'Terminée !' : 'En cours'}}</p>
-  <p>
-    <button (click)="update()">Marquer comme  {{tache.is_done ? 'Terminée !' : 'En cours'}}</button>
-    <button (click)="remove()">Delete</button>
-  </p>
-</div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>{{tache.is_done ? 'Terminée !' : 'En cours'}}</mat-card-subtitle>
+      <mat-card-title>{{tache.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{tache.description}}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button color="primary"  (click)="update()">Marquer comme  {{tache.is_done ? 'Terminée !' : 'En cours'}}</button>
+      <button mat-stroked-button color="warn" (click)="remove()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+
+
